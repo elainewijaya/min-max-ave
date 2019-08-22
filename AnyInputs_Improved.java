@@ -19,23 +19,31 @@ public class AnyInputs_Improved {
      */
     
     public static void main(String[] args) {
+        // Initialise our Array List al to dynamically store inputs
+        // Declare it with the Float type to make it easier for calculations later
         ArrayList <Float> al = new ArrayList<>();
+        // Initialise our sum before the loop so we can calculate the sum while adding to the Array list
         Float sum = 0f;
+        // Initialise input
         Scanner input = new Scanner(System.in);
         
         while(true) {
             System.out.println("Enter your next number, or enter 'stop' to stop adding numbers:");
             
+            // Check if input is a float; if it is, add it to the list
             if ( input.hasNextFloat()) {
                 al.add(input.nextFloat());
                 sum += al.get(al.size()-1);
+            // If our input is stop, exit the loop
             } else if (input.next().equals("stop")){
                 break;
+            // If our input is not a float or stop, skip this iteration
             } else {
                 System.out.println("Invalid input - please enter either a number or 'stop'.");
             }
         }
         
+        // If there are no inputs, stop the program
         if ( al.isEmpty() ) {
                 System.out.println("You have not entered any numbers. Bye bye!");
                 System.exit(0);
